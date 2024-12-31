@@ -1,0 +1,97 @@
+
+
+@font-face {
+    font-family: myfont;
+    src: url("/font/GE_SS_Two_Bold.otf");
+}
+
+@font-face {
+    font-family: myfont2;
+    src: url("/font/DroidKufi-Regular.ttf");
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family:myfont2;
+    min-height: 100vh;  Ensure body takes full viewport height 
+}
+
+/* Navbar style */
+.nav-style {
+    background-color: #0c5c82;
+    border-color: #e7e7e7;
+    width: 100%;
+}
+
+    .nav-style .navbar-nav > .nav-item > a {
+        color: #fff;
+        font-family: myfont;
+    }
+
+    .nav-style .navbar-nav > .nav-item {
+        position: relative;
+        display: block;
+        padding: 10px;
+        height: 70px;
+    }
+
+/* Footer style */
+.footer {
+    background-color: cornflowerblue;
+    padding-top: 10px;
+    font-family: myfont;
+    margin-top: auto; /* Push the footer to the bottom of the content */
+}
+
+    .footer h3 {
+        font-size: 1.5rem;
+    }
+
+    .footer a {
+        color: azure;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            color: black;
+        }
+
+.sub-footer {
+    background-color: darkblue;
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.logo-size {
+    height: 62px;
+    margin-top: -11px;
+    width: 120px;
+}
+
+#searchname {
+    width: 130px; /* Increased width for better appearance */
+
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/622/622669.png");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition:width 0.5s ease-in-out;
+}
+
+ #searchname:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        width:100%;
+    }

@@ -1,0 +1,204 @@
+﻿@model JobsBoard.Models.ApplyForJob
+
+@{
+    ViewData["Title"] = "تفاصيل الطلب";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid main main--md-px container-fluid--max-w">
+    <div id="page-main-header" class="page-main-header">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb page-main-header__breadcrumb">
+                <li class="breadcrumb-item"><a href="https://baaeed.com">الرئيسية</a></li>
+                <li class="breadcrumb-item"><a href="https://baaeed.com/dashboard/applications">طلبات التوظيف</a></li>
+                <li class="breadcrumb-item"><a href="https://baaeed.com/dashboard/applications?companies=technoshownet">تكنو شو</a></li>
+            </ol>
+        </nav>
+
+        <div class="page-main-header__title">
+            <h1>طلب توظيف @Model.Job.JobTitle</h1>
+            <div class="page-main-header__actions-nav">
+                <a href="https://baaeed.com/dashboard/applications?companies=technoshownet" class="go-back">
+                    <i class="fa fa-angle-right go-back-icon"></i>
+                    <span class="go-back-label">تكنو شو</span>
+                </a>
+                <div class="action-button-wrapper">
+                    <div class="page-header__dropdown dropdown btn-group">
+                        <a href="https://baaeed.com/remote-jobs/technoshownet-%D9%85%D8%B7%D9%88%D8%B1-%D9%88%D9%88%D8%B1%D8%AF%D8%A8%D8%B1%D9%8A%D8%B3" class="btn btn-primary">
+                            <i class="fa fa-eye"></i> مشاهدة الوظيفة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-5 col-xl-4 order-lg-2 mb-page-block mb-lg-0 tabs-lg-adjacent">
+            <div class="card application-card">
+                <div class="card-header">
+                    <h2>بطاقة الطلب</h2>
+                </div>
+                <div class="card-body">
+                    <div class="object-metadata">
+                        <div class="attribute">
+                            <div class="attribute-name">المتقدم</div>
+                        </div>
+                        <div class="applicant-card">
+                            <a class="no-collapsable a-avatar" href="https://baaeed.com/u/Abdobajaman">
+                                <img src="https://avatars.hsoubcdn.com/7bd8de7b98d33fc8d50099343e6a8d36?s=128" class="profile__avatar img--circle" width="64" height="64">
+                            </a>
+                            <div class="applicant-card__details">
+                                <a class="applicant-card__name" href="https://baaeed.com/u/Abdobajaman">عبدالرحمن ع.</a>
+                                <ul class="baaeed-list__meta-items">
+                                    <li><i class="fa fa-fw fa-map-marker"></i> اليمن</li>
+                                    <li><a href="https://baaeed.com/talents/%D9%85%D8%A8%D8%B1%D9%85%D8%AC-%D9%85%D9%88%D8%A7%D9%82%D8%B9"><i class="fa fa-briefcase fa-fw"></i> مبرمج مواقع</a></li>
+                                </ul>
+                                <div class="applicant-card__extra">
+                                    <div class="applicant-card__email">
+                                        <i class="fa fa-envelope fa-fw"></i>
+                                        <span id="applicant-email">abdo99669@gmail.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="object-divider">
+
+                    <div class="attribute">
+                        <div class="attribute-name">الحالة</div>
+                        <div class="attribute-value">
+                            <span class="small-tag label-gray">تم الاستلام</span>
+                        </div>
+                    </div>
+
+                    <div class="attribute">
+                        <div class="attribute-name">التاريخ</div>
+                        <div class="attribute-value">
+                            @{
+                                DateTime applyDate = Model.ApplayDate; // Assuming ApplayDate is a DateTime object
+                                DateTime currentDate = DateTime.Now;
+                                TimeSpan difference = currentDate - applyDate;
+                                int daysAgo = difference.Days;
+
+                                // Calculate number of months
+                                int monthsAgo = (currentDate.Year - applyDate.Year) * 12 + currentDate.Month - applyDate.Month;
+                                if (currentDate.Day < applyDate.Day) monthsAgo--;
+
+                                // Calculate number of years
+                                int yearsAgo = currentDate.Year - applyDate.Year;
+                                if (currentDate.Month < applyDate.Month || (currentDate.Month == applyDate.Month && currentDate.Day < applyDate.Day)) yearsAgo--;
+
+                                <time datetime="@Model.ApplayDate" title="@Model.ApplayDate">
+                                    @if (yearsAgo > 0)
+                                    {
+                                        @if (yearsAgo == 1)
+                                        {
+                                            @:منذ سنة
+                                        }
+                                        else
+                                        {
+                                            @:منذ @yearsAgo سنوات
+                                        }
+                                    }
+                                    else if (monthsAgo > 0)
+                                    {
+                                        @if (monthsAgo == 1)
+                                        {
+                                            @:منذ شهر
+                                        }
+                                        else
+                                        {
+                                            @:منذ @monthsAgo أشهر
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @if (daysAgo == 0)
+                                        {
+                                            @:منذ اليوم
+                                        }
+                                        else if (daysAgo == 1)
+                                        {
+                                            @:منذ يوم
+                                        }
+                                        else
+                                        {
+                                            @:منذ @daysAgo أيام
+                                        }
+                                    }
+                                </time>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 col-xl-8 order-lg-1">
+            <div id="application-nav">
+                <ul class="nav nav-tabs p-0" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="details" data-toggle="tab" href="#details-panel" role="tab">
+                            <i class="fa fa-file-text"></i> طلب التوظيف
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="conversation" data-toggle="tab" href="#conversation-panel" role="tab">
+                            <i class="fa fa-comments"></i> المحادثة
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane show active" id="details-panel" role="tabpanel" aria-labelledby="details">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="application__about">
+                                    @Model.Message
+                                </p>
+
+                                <div>
+                                    <label class="col-form-label pt-0">ملفات مرفقة</label>
+                                    <div class="attachment">
+                                        <span class="attachment__extension small-tag attachment__label text-white bg-secondary mr-1">pdf</span>
+                                        <a class="attachments__link small mr-1"
+                                           href="@Url.Content("~/CVs/" + System.IO.Path.GetFileName(Model.CVPath))"
+                                           download="@System.IO.Path.GetFileName(Model.CVPath)">
+                                            Download CV
+                                        </a>
+                                        <span class="attachments__size text-muted">(53.75KB)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="conversation-panel" role="tabpanel" aria-labelledby="conversation">
+                        <div class="interactive-chat-container">
+                            <div class="messages-list empty">
+                                <span>لا يوجد تواصل بعد. سيتواصل معك صاحب العمل أولًا إن كنت مرشحًا مناسبًا للوظيفة.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional: Add custom CSS for further styling -->
+<style>
+    .application-card {
+        margin-bottom: 20px;
+    }
+
+    .object-metadata {
+        margin-bottom: 20px;
+    }
+
+    .object-divider {
+        margin: 20px 0;
+    }
+</style>

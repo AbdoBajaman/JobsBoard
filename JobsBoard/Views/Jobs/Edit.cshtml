@@ -1,0 +1,117 @@
+﻿@model JobsBoard.Models.Job
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/CkEditor/ckeditor/ckeditor.js"> </script>
+
+<h1>تعديل</h1>
+
+<h4>وظيفه</h4>
+<hr />
+@if (ViewBag.Errors != null)
+{
+    <ul class="text-danger">
+        @foreach (var error in ViewBag.Errors)
+        {
+            <li>@error</li>
+        }
+    </ul>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div class="alert-danger rounded-3" id="ErrorDiv">
+                <span id="ViewError" class="text-center">
+
+                </span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="JobImage" />
+            <div class="form-group">
+                <label asp-for="JobTitle" class="control-label"></label>
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobContent" class="control-label"></label>
+                <textarea asp-for="JobContent" class="form-control" id="JobContent"></textarea>
+                <span asp-validation-for="JobContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <div class=row>
+
+                    <div class=col-md-6>
+
+                        <label asp-for="JobImage" class="control-label"></label>
+                        <input name="upload" type="file" class="form-control" id="JobImage" />
+                    </div>
+
+                    <div class=col-md-6>
+
+                        <label asp-for="CompanyName" class="control-label"></label>
+                        <input type="text" asp-for="CompanyName" class="form-control"  />
+                    </div>
+                </div>
+              
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="حفظ" class="btn btn-primary" id="save" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">رجوع</a>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<script>
+    CKEDITOR.replace('JobContent');
+</script>
+<script>
+    $(document).ready(function () {
+        $("#save").click(function (e) {
+            var fileInput = $("#JobImage"); // Get the file input
+            var file = fileInput[0].files[0]; // Get the selected file
+
+            // Check if there is a file selected
+            if (file) {
+                // Check if the file extension is valid
+                var validExtensions = ["jpg", "png", "gif", "bmp"];
+                var fileExtension = file.name.split('.').pop().toLowerCase(); // Get the file extension
+                if ($.inArray(fileExtension, validExtensions) == -1) {
+                    $("#ViewError").text("الرجاء ادخال صوره من نوع jpg ,png,gif or bmp"); // Show the error message
+                    $("#ErrorDiv").fadeIn(); // Show the error div if hidden
+                    e.preventDefault(); // Prevent form submission
+                    return false;
+                }
+
+                // Check if the file size is less than 2 MB
+                var fileSize = file.size / 1024 / 1024; // Size in MB
+                if (fileSize > 2) {
+                    $("#ViewError").text("رجاء ادخل صوره حجمها لا يتجاوز 2 ميغا"); // Show the error message
+                    $("#ErrorDiv").fadeIn(); // Show the error div if hidden
+                    e.preventDefault(); // Prevent form submission
+                    return false;
+                }
+            }
+
+        });
+    });
+
+
+
+
+</script>

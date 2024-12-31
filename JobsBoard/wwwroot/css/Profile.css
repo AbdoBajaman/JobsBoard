@@ -1,0 +1,20 @@
+﻿body {
+}
+
+
+.img--circle{
+    border-radius:50%;
+}
+
+.Header-Details div > .profile-verification-badge {
+    position: absolute;
+    bottom: 13px; 
+    right: 0;
+    z-index:10;
+}
+.page-profile div div > .header-title {
+    font-family: Noto Kufi Arabic, Open Sans, Helvetica Neue, Helvetica, Arial, "sans-serif";
+    font-size: 24px;
+    line-height: 1.84;
+    margin-bottom: 0;
+}

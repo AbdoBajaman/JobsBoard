@@ -1,0 +1,615 @@
+﻿@model JobsBoard.Models.Job
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<div class="row">
+    <div class="col-lg-8 mb-page-block mb-lg-0">
+        <div class="job">
+
+            <div class="card page-block  page-block-extra-spacing  ">
+                <div class="card-body page-block__body ">
+                    <div class="job__description">
+                        <input id="read-only-description" type="hidden" autofocus="false" tabindex="-1" value="
+                        <h2 dir='rtl'>وصف الوظيفة</h2>
+                        <p dir='rtl'>@Html.DisplayNameFor(model => model.JobTitle)</p>
+
+                        <h2 dir='rtl'>المهام الوظيفية</h2>
+                        <ul dir='rtl'>
+                            <li>يستطيع التعامل مع جميع انواع القوالب المجانية المدفوعة</li>
+                            <li>حل مشكلات الفنية الخاصة بالوردبريس</li>
+                            <li>ترسل الأعمال السابقة كروابط لتقيم العمل</li>
+                        </ul>
+
+                        <h2 dir='rtl'>المؤهلات والخبرات</h2>
+                        <ul dir='rtl'>
+                            <li>خبرة لا تقل عن ٣ سنوات</li>
+                        </ul>
+
+                        <h2 dir='rtl'>مميزات العمل</h2>
+                        <ul dir='rtl'>
+                            <li>مرتب مجزي&nbsp;</li>
+                            <li>العمل عن بعد</li>
+                            <li>يوم اجازة</li>
+                            <li>فرص للترقية&nbsp;</li>
+                        </ul>
+
+                        <h2 dir='rtl'>المعلومات المطلوبة</h2>
+                        <ul dir='rtl'>
+                            <li>السيرة الذاتية أو ملف شخصي مكتمل على موقع بعيد</li>
+                            <li>رابط معرض الأعمال وحسابك على Github إن وجد</li>
+                            <li>روابط المواقع التي قمت بتنفيذها</li>
+                        </ul>
+                        " />
+
+                        <trix-toolbar id="trix-toolbar-1" style="pointer-events: none; display: none;">
+                            <div class="trix-button-row">
+                                <span class="trix-button-group trix-button-group--text-tools" data-trix-button-group="text-tools" style="order: 1;">
+                                    <button type="button" class="trix-button trix-button--icon trix-button--icon-bold" data-trix-attribute="bold" data-trix-key="b" title="غامق" tabindex="-1">غامق</button>
+
+
+
+                                </span>
+
+                                <span class="trix-button-group trix-button-group--block-tools" data-trix-button-group="block-tools" style="order: 2;">
+
+
+
+                                    <button type="button" class="trix-button trix-button--icon trix-button--icon-bullet-list trix-active" data-trix-attribute="bullet" title="تعداد نقطي" tabindex="-1" data-trix-active="">تعداد نقطي</button>
+                                    <button type="button" class="trix-button trix-button--icon trix-button--icon-number-list" data-trix-attribute="number" title="تعداد رقمي" tabindex="-1">تعداد رقمي</button>
+
+
+                                </span>
+
+
+
+                                <span class="trix-button-group-spacer"></span>
+
+                                <span class="trix-button-group trix-button-group--history-tools" data-trix-button-group="history-tools" style="order: 3;">
+                                    <button type="button" class="trix-button trix-button--icon trix-button--icon-undo" data-trix-action="undo" data-trix-key="z" title="تراجع" tabindex="-1" disabled="disabled">تراجع</button>
+                                    <button type="button" class="trix-button trix-button--icon trix-button--icon-redo" data-trix-action="redo" data-trix-key="shift+z" title="إعادة" tabindex="-1" disabled="disabled">إعادة</button>
+                                </span>
+                            </div>
+
+                            <div class="trix-dialogs" data-trix-dialogs="">
+                                <div class="trix-dialog trix-dialog--link" data-trix-dialog="href" data-trix-dialog-attribute="href">
+                                    <div class="trix-dialog__link-fields">
+                                        <input type="url" name="href" class="trix-input trix-input--dialog" placeholder="أدخل رابط.." aria-label="URL" required="" data-trix-input="" disabled="disabled">
+                                        <div class="trix-button-group">
+                                            <input type="button" class="trix-button trix-button--dialog" value="إضافة رابط" data-trix-method="setAttribute">
+                                            <input type="button" class="trix-button trix-button--dialog" value="إزالة رابط" data-trix-method="removeAttribute">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </trix-toolbar><trix-editor input="read-only-description" class="editor-read-only" contenteditable="false" dir="rtl" role="textbox" trix-id="1" toolbar="trix-toolbar-1"><h2 dir="rtl"><!--block-->وصف الوظيفة</h2><p dir="rtl"><!--block-->مطلوب 2 مصممين متاجر إلكترونية وموقع تعريفية لشركة تصميم مواقع.</p><h2 dir="rtl"><!--block-->المهام الوظيفية</h2><ul dir="rtl"><li><!--block-->يستطيع التعامل مع جميع انواع القوالب المجانية المدفوعة</li><li><!--block-->حل مشكلات الفنية الخاصة بالوردبريس</li><li><!--block-->ترسل الأعمال السابقة كروابط لتقيم العمل</li></ul><h2 dir="rtl"><!--block-->المؤهلات والخبرات</h2><ul dir="rtl"><li><!--block-->خبرة لا تقل عن ٣ سنوات</li></ul><h2 dir="rtl"><!--block-->مميزات العمل</h2><ul dir="rtl"><li><!--block-->مرتب مجزي&nbsp;</li><li><!--block-->العمل عن بعد</li><li><!--block-->يوم اجازة</li><li><!--block-->فرص للترقية&nbsp;</li></ul><h2 dir="rtl"><!--block-->المعلومات المطلوبة</h2><ul dir="rtl"><li><!--block-->السيرة الذاتية أو ملف شخصي مكتمل على موقع بعيد</li><li><!--block-->رابط معرض الأعمال وحسابك على Github إن وجد</li><li><!--block-->روابط المواقع التي قمت بتنفيذها</li></ul></trix-editor>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card page-block  page-block-extra-spacing  ">
+                <div class="card-header page-block__header ">
+                    <h2 class="page-block__header-title d-inline">التقدم للوظيفة</h2>
+                    <a href="https://baaeed.com/p/how-to-apply" class="float-right d-inline btn btn-outline-info btn-sm" target="_blank">
+                        تعلم كيفية التقدم الصحيحة
+                    </a>
+                </div>
+                <div class="card-body page-block__body ">
+                    <form id="job-application-form" class="job-application-form" method="POST" action="https://baaeed.com/dashboard/remote-jobs/9526/apply" enctype="multipart/form-data" novalidate="novalidate" data-prevent-submit-with-enter="true">
+                        <input type="hidden" name="_token" value="mF2shEq4cPVex1nDPhI7MPFE6Zc68W5pMXNZWIoA" autocomplete="off">
+                        <div class="row profile-attributes">
+                            <div class="form-group col-md-12">
+                                <label for="about" class="col-form-label">خطاب التوظيف                 <span class="text-danger">*</span>  </label>
+                                <textarea class="form-control " id="about" rows="10" name="about" maxlength="2000" required=""></textarea>
+
+                                <span class="form-text text-muted form__help">
+                                    لماذا أنت مهتم بهذه الوظيفة، ما أهم خبراتك ومالذي تستطيع تقديمه؟
+                                </span>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="attachments__wrapper ">
+                            <div class="mrg--bs-imp">
+                            </div>
+
+
+                            <div id="dropzone_area" class=" dropzone_area">
+                                <label for="text" class="col-form-label ">
+                                    إضافة ملفات مرفقة
+                                </label>
+                                <div class="dropzone-box list-group dz-clickable" data-ui="dropzone" data-url="https://baaeed.com/api/files/resume" data-submit-button-id="#application__submit-button-with-confirmation">
+                                    <div class="list-group-item pointer bg-gray dz-upload-area ">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-object dropzone-image mr-2">
+                                                <i class="fa fa-fw fa-cloud-upload upload-icon"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="dropzone-text__primary mb-2">اسحب الملفات هنا</div>
+                                                <div class="dropzone-text__secondary text-muted mb-1">أو انقر للاختيار يدويا</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="files" id="uploaded_files" data-type="files" class="uploaded_files" value="">
+                                <span class="dropzone-text__file-size small text-muted">الامتدادات المسموحة: pdf, doc, docx. الحجم الاقصى للملف 50MB</span>
+                                <div class="invalid-feedback small"></div>
+
+                            </div>
+
+                            <!-- file review template -->
+                            <div id="dz-img-tmpl" class="d-none">
+                                <div class="dz-preview dz-file-preview list-group-item">
+                                    <div class="dz-details">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-object dropzone-image mr-2 hidden">
+                                                <img data-dz-thumbnail="" width="64" class="img-fluid">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-2">
+                                                        <b class="dz-error-mark text-danger">
+                                                            <i class="fa fa-times-circle-o"></i>
+                                                        </b>
+                                                        <b class="dz-success-mark text-success">
+                                                            <i class="fa fa-check-circle-o"></i>
+                                                        </b>
+                                                        <b class="dz-processing-mark text-primary">
+                                                            <i class="fa fa-spinner fa-spin ml-2"></i>
+                                                        </b>
+                                                        <span data-dz-name="" class="dz-filename"></span>
+                                                        <small class="dz-size text-muted">
+                                                            حجم الملف                                    <span data-dz-size=""><strong></strong> </span>
+                                                        </small>
+                                                        <span class="float-right dropzone-delete-span">
+                                                            <button data-dz-remove="" class="btn btn-xs btn-danger">
+                                                                <i class="fa fa-times"></i> حذف
+                                                            </button>
+                                                        </span>
+                                                        <span class="float-right dropzone-cancel-span">
+                                                            <button data-dz-remove="" class="btn btn-xs btn-danger">
+                                                                <i class="fa fa-times"></i> إلغاء
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="dz-progress progress-striped mb-2">
+                                                            <span class="dz-upload progress-bar" data-dz-uploadprogress=""></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-muted m-0 dropzone-error-div">
+                                                    <span data-dz-errormessage="" class="dz-error-message small"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button id="application__submit-button" class="btn btn-primary mt-3" hidden="">
+                            <i class="fa fa-send"></i> أرسل
+                        </button>
+                    </form>
+
+                    <button id="application__submit-button-with-confirmation" class="btn btn-primary mt-3" data-toggle="modal" data-target="#confirmation-modal" data-title="تأكيد إرسال طلب توظيف" data-content-text="هل أنت متأكد من رغبتك بإرسال طلب التوظيف؟ بمجرد إرسال الطلب لايمكن تعديل أي من بيانات الطلب لاحقًا" data-form-action="https://baaeed.com/dashboard/remote-jobs/9526/apply" data-form-csrf="<input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;mF2shEq4cPVex1nDPhI7MPFE6Zc68W5pMXNZWIoA&quot; autocomplete=&quot;off&quot;>" data-form-content=" " data-confirm-button-color="primary" data-confirm-button-text="أرسل">
+
+                        <i class="fa fa-send"></i> أرسل
+                    </button>
+
+                    <div class="modal fade" id="confirmation-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title"></h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="modal-content__text "></p>
+                                    <p class="modal-content__secondary-text "></p>
+                                    <div class="modal-content__form-div">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="confirm_application_submition" type="button" class="btn confirm-button  form__submit-btn--disable-on-click  ">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-lg-4">
+        <div class="card page-block  page-block-extra-spacing  object-card">
+            <div class="card-header page-block__header d-flex justify-content-between align-items-center">
+                <h2 class="page-block__header-title">
+                    بطاقة الوظيفة
+                </h2>
+            </div>
+            <div class="card-body page-block__body ">
+                <div class="attribute">
+                    <div class="attribute-name">حالة الوظيفة</div>
+                    <div class="attribute-value d-flex">
+                        <span class="small-tag label-green">
+                            منشورة
+                        </span>
+                    </div>
+                </div>
+
+                <div class="attribute">
+                    <div class="attribute-name">
+                        سنوات الخبرة
+                    </div>
+                    <div class="attribute-value">
+                        3 - 5 سنوات
+                    </div>
+                </div>
+
+
+                <div class="attribute">
+                    <div class="attribute-name">
+                        نوع الوظيفة
+                    </div>
+                    <div class="attribute-value">
+                        دوام كامل
+                    </div>
+                </div>
+
+
+                <div class="attribute ">
+                    <div class="attribute-name">
+                        تاريخ النشر
+                    </div>
+                    <div class="attribute-value">
+                        <time datetime="2024-11-26 10:22:51" title="" itemprop="datePosted" data-toggle="tooltip" data-original-title="2024-11-26 10:22:51">
+
+                            منذ يومين
+                        </time>
+                    </div>
+                </div>
+
+                <div class="attribute d-block mb-0">
+                    <div class="attribute-name mb-2 w-100">
+                        المهارات
+                    </div>
+                    <div>
+                        <div class="small-tag-secondary text-white">
+                            مبرمج
+                        </div>
+                        <div class="small-tag-secondary text-white">
+                            برمجة مواقع
+                        </div>
+                        <div class="small-tag-secondary text-white">
+                            برمجة
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="object-divider">
+
+                <div class="object-metadata">
+                    <div class="attribute">
+                        <div class="attribute-name">الشركة</div>
+                    </div>
+
+                    <div class="company d-flex align-items-top">
+                        <div class="company__logo-wrapper">
+                            <a class="text-secondary" href="https://baaeed.com/companies/linkdesginom">
+                                <img src="https://baaeed.hsoubcdn.com/images/logos/46424a3c-c595-4f98-87b7-d7a1d3e644fb.jpg" class="profile__avatar company__logo--job uavatar--medium">
+                            </a>
+                        </div>
+
+                        <div class="company__details-wrapper d-flex align-items-start flex-column justify-content-center">
+                            <a class="text-dark" href="https://baaeed.com/companies/linkdesginom">
+                                <h3 class="company__name">
+                                    @Html.DisplayNameFor(model => model.CompanyName)
+
+                                </h3>
+                            </a>
+
+                            <ul class="baaeed-list__meta-items ">
+                                <li class="">
+                                    <i class="fa fa-briefcase fa-fw"></i>
+                                    تسويق وإعلان
+                                </li>
+
+                                <li class="">
+                                    <i class="fa fa-map-marker fa-fw"></i>
+                                    <span>قطر</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer page-block__footer ">
+                <a class="font-naskh text-muted" href="https://baaeed.com/companies/linkdesginom/jobs">
+                    وظائف عن بعد في شركة ديزاين
+                </a>
+            </div>
+        </div>
+
+        <div class="card page-block  page-block-extra-spacing  ">
+            <div class="card-header page-block__header ">
+                <h2 class="page-block__header-title">خدمة كتابة السيرة الذاتية</h2>
+            </div>
+            <div class="card-body page-block__body ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>احصل على سيرة ذاتية احترافية بمساعدة فريق خبراء التوظيف.</p>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <a class="btn btn-primary" href="https://baaeed.com/job-seekers/resume">
+                            <i class="fa fa-info-circle"></i> اعرف المزيد
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card page-block  page-block-extra-spacing  baaeed-list__block">
+            <div class="card-header page-block__header baaeed-list__title">
+                <h2 class="page-block__header-title">وظائف مشابهة</h2>
+            </div>
+            <div class="card-body page-block__body ">
+                <div class=" row  baaeed-list ">
+                    <section class="col-md-12 card baaeed-card ">
+                        <div class="baaeed-card__content ">
+                            <table class="w-100">
+                                <tbody>
+                                    <tr>
+
+                                        <td class="td-w-100 baaeed-list__details ">
+
+                                            <div class="d-flex align-items-top">
+                                                <div class="item__details px-0">
+                                                    <h3 class="card-title ">
+                                                        <a href="https://baaeed.com/remote-jobs/kwefi-%D9%85%D8%AA%D8%AE%D8%B5%D8%B5-%D8%A8%D9%86%D8%A7%D8%A1-%D9%85%D8%AA%D8%A7%D8%AC%D8%B1-%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9-%D9%88-funnels-%D8%B9%D9%84%D9%89-%D9%85%D9%86%D8%B5%D8%A7%D8%AA-%D9%85%D8%AE%D8%AA%D9%84%D9%81%D8%A9">
+                                                            متخصص بناء متاجر الكترونية و Funnels على منصات مختلفة
+                                                        </a>
+                                                    </h3>
+
+                                                    <ul class="baaeed-list__meta-items">
+                                                        <li>
+                                                            <i class="fa fa-building fa-fw"></i>
+                                                            <a href="https://baaeed.com/companies/kwefi">
+                                                                @Html.DisplayNameFor(model => model.CompanyName) ?? "غير معروف"
+
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+
+                    <section class="col-md-12 card baaeed-card ">
+                        <div class="baaeed-card__content ">
+                            <table class="w-100">
+                                <tbody>
+                                    <tr>
+
+                                        <td class="td-w-100 baaeed-list__details ">
+
+                                            <div class="d-flex align-items-top">
+                                                <div class="item__details px-0">
+                                                    <h3 class="card-title ">
+                                                        <a href="https://baaeed.com/remote-jobs/e-gategroup-%D9%85%D8%A8%D8%B1%D9%85%D8%AC-odoo">
+                                                            مبرمج Odoo
+                                                        </a>
+                                                    </h3>
+
+                                                    <ul class="baaeed-list__meta-items">
+                                                        <li>
+                                                            <i class="fa fa-building fa-fw"></i>
+                                                            <a href="https://baaeed.com/companies/e-gategroup">
+                                                                بوابة الحلول التقنية
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+
+                    <section class="col-md-12 card baaeed-card ">
+                        <div class="baaeed-card__content ">
+                            <table class="w-100">
+                                <tbody>
+                                    <tr>
+
+                                        <td class="td-w-100 baaeed-list__details ">
+
+                                            <div class="d-flex align-items-top">
+                                                <div class="item__details px-0">
+                                                    <h3 class="card-title ">
+                                                        <a href="https://baaeed.com/remote-jobs/hsoub-%D9%85%D8%AF%D8%B1%D8%A8-%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A">
+                                                            مدرب تعليم إلكتروني
+                                                        </a>
+                                                    </h3>
+
+                                                    <ul class="baaeed-list__meta-items">
+                                                        <li>
+                                                            <i class="fa fa-building fa-fw"></i>
+                                                            <a href="https://baaeed.com/companies/hsoub">
+                                                                باجعمان للحلول التقنيه
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+
+                    <section class="col-md-12 card baaeed-card ">
+                        <div class="baaeed-card__content ">
+                            <table class="w-100">
+                                <tbody>
+                                    <tr>
+
+                                        <td class="td-w-100 baaeed-list__details ">
+
+                                            <div class="d-flex align-items-top">
+                                                <div class="item__details px-0">
+                                                    <h3 class="card-title ">
+                                                        <a href="https://baaeed.com/remote-jobs/themirannet-%D9%85%D8%A8%D8%B1%D9%85%D8%AC-%D9%85%D9%88%D8%A7%D9%82%D8%B9-%D9%88%D9%8A%D8%A8">
+                                                            مبرمج مواقع ويب
+                                                        </a>
+                                                    </h3>
+
+                                                    <ul class="baaeed-list__meta-items">
+                                                        <li>
+                                                            <i class="fa fa-building fa-fw"></i>
+                                                            <a href="https://baaeed.com/companies/themirannet">
+                                                                مركز مران القادة للتدريب
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+
+                    <section class="col-md-12 card baaeed-card ">
+                        <div class="baaeed-card__content ">
+                            <table class="w-100">
+                                <tbody>
+                                    <tr>
+
+                                        <td class="td-w-100 baaeed-list__details ">
+
+                                            <div class="d-flex align-items-top">
+                                                <div class="item__details px-0">
+                                                    <h3 class="card-title ">
+                                                        <a href="https://baaeed.com/remote-jobs/checkoutbh-%D9%85%D8%B7%D9%88%D8%B1-python-%D9%88-javascript">
+                                                            مطور Python و JavaScript
+                                                        </a>
+                                                    </h3>
+
+                                                    <ul class="baaeed-list__meta-items">
+                                                        <li>
+                                                            <i class="fa fa-building fa-fw"></i>
+                                                            <a href="https://baaeed.com/companies/checkoutbh">
+                                                                چيك أوت للحلول البرمجية
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JobContent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Model.JobContent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JobImage)
+        </dt>
+        <dd class="col-sm-10">
+            <div class="img-container" style="width: 100%; height: 300px; overflow: hidden;">
+                <img src="/Images/@(Model.JobImage)" class="img-fluid" alt="صورة خاصه بالوظيفه" style="width: 100%; height: 100%;">
+            </div>
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("باحث عن عمل"))
+    {
+        <form asp-action="Applay" method="get">
+
+            <button type="submit" class="btn btn-success">التقدم الى هذه الوظيفه</button>
+        </form>
+    }
+
+    <a class="btn btn-primary" asp-action="Index">رجوع</a>
+</div>

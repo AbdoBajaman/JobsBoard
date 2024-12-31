@@ -1,0 +1,21 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityRole;
+
+<h3>هل انت متأكد من حذف هذا الدور؟ لن تستطيع استرجاعه مره اخرى!</h3>
+<div>
+    <h4>حذف</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="حذف" class="btn btn-danger" /> |
+        <a asp-action="Index">رجوع</a>
+    </form>
+</div>

@@ -1,0 +1,194 @@
+﻿/* wwwroot/css/Jobs.css */
+.jobImage {
+    height: 200px; /* Limit the height of the job image */
+    object-fit: cover; /* Ensure the image maintains aspect ratio */
+}
+
+/* Style for Job Card */
+.card {
+    /*border-radius: 10px;*/
+    border: 1px solid #ddd;
+}
+
+/* Card header styling */
+.card-header {
+    border-radius: 10px 10px 0 0;
+}
+
+/* Spacing between the Job Title and content */
+.card-body {
+    padding: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+    /*color: #007bff;*/ /* Custom color for the job title */
+}
+
+.col-jobs {
+    margin-left: 20px;
+    margin-bottom: 30px;
+    max-height: 380px;
+    margin-top: 20px;
+}
+
+.marker {
+    background-color: yellow; /* Apply yellow background */
+    padding: 2px; /* Optional: Add padding for better readability */
+}
+
+.collection-browse .Bajaman-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.h1, .h2, .h3, .h4, .h5, .h6, .primary-nav .nav-link, h1, h2, h3, h4, h5, h6 {
+    font-family: Noto Kufi Arabic, Open Sans, Helvetica Neue, Helvetica, Arial, "sans-serif";
+    line-height: 1.84;
+}
+
+.collection-browse .Bajaman_card {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.Bajaman_card {
+    border-width: 0 0 1px !important;
+    padding: 21px;
+}
+
+.ana-react-chat .message-item > .metas .message-time time,
+.application-card .applicant-card__email .applicant-card__extra #applicant-email,
+.application-card .applicant-card__extra .applicant-card__email #applicant-email,
+.application-card .applicant-card__extra .applicant-card__link,
+.application-item__view-profile-link, .Bajaman-list__meta-items li,
+.btn, .message__date, .meta-item,
+.note__date, .tag, button, label {
+    font-family: Noto Kufi Arabic,Open Sans,Helvetica Neue,Helvetica,Arial,"sans-serif";
+}
+
+.card {
+    word-wrap: break-word;
+    background-clip: border-box;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+}
+
+.label-yellow {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.tag {
+    border-radius: 0;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 2.2;
+    padding: 0 6px;
+    white-space: nowrap;
+}
+
+.small-tag {
+    font-size: 10px;
+}
+
+/*.Bajaman-list_info {
+ 
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+}*/
+
+.Bajaman-list-items, .Bajaman-item-link {
+    color: #6c757d;
+}
+/*.details-url:hover {
+    color: inherit;*/ /* Resets to the parent color */
+/*background-color: transparent;*/ /* Removes background color */
+/*text-decoration: none;*/ /* Removes underline (if it's a link) */
+/*}*/
+.Bajaman-list_action-wrapper {
+    margin-top: 1rem !important;
+    margin-left: unset !important;
+    margin-right: .5rem !important;
+}
+
+.applay-job {
+    background-color: #0c5c82;
+    color: white;
+}
+
+.Bajaman_card .Bajaman_list_details .item_details {
+    flex: 4;
+}
+
+/*//cut job content;*/
+.Bajaman_card .details-url, .Bajaman_card .details-url:hover {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #343a40;
+    display: block;
+    display: -webkit-box;
+    max-height: 3.68em;
+    overflow: hidden;
+    text-decoration: none !important;
+    /*here it show ... after 2 lines done cus the content longer than 2 lines*/
+    text-overflow: ellipsis;
+}
+
+.card-title {
+    color: #343a40;
+    font-size: .95rem;
+}
+
+.company-item__logo, .company__logo, .company__logo--job, .img-thumbnail {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 0;
+    display: inline-block;
+    line-height: 1.42857;
+    max-width: 100%;
+    padding: 4px;
+    transition: all .2s ease-in-out
+}
+
+.Bajaman_card .Bajaman_list_details {
+    padding-left: 21px;
+    padding-right: 21px;
+}
+
+.img--circle {
+    border-radius: 50%
+}
+
+.company_logo {
+    height: 64px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    padding: 0 !important;
+    width: 64px
+}
+
+
+.main-title {
+    color: #77869b;
+    font-size: 14px;
+    line-height: 1.8 !important;
+}
+.main-title:hover{
+    background-color:transparent;
+}

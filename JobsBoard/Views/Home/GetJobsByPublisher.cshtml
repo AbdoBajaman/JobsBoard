@@ -1,0 +1,41 @@
+﻿@model IEnumerable<JobsBoard.Models.JobViewModel>
+
+@{
+    ViewData["Title"] = "GetJobsByPublisher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>قائمه الوظائف الخاصه بك</h1>
+
+@foreach (var Job in Model)
+{
+    <h3>
+        @Job.JobTitle
+    </h3>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>الباحث عن وظيفه</th>
+            <th> الخطاب</th>
+            <th>
+                تاريخ الارسال
+            </th>
+        </tr>
+        @foreach (var item in Job.ApplyForJob)
+        {
+            <tr>
+                <th>
+                    @item.User.UserName
+                </th>
+                <th>
+                    @(item.Message.Length > 250
+            ? item.Message.Substring(0, 250) + "..."
+            : item.Message)
+                </th>
+
+                <th>
+                    @item.ApplayDate
+                </th>
+            </tr>
+        }
+    </table>
+}

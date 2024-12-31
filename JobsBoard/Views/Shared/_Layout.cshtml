@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - JobBoard</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JobBoard.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/font/glyphicons-halflings-regular.eot" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Jobs.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/BajamanDropItem.css" asp-append-version="true" />
+
+
+    <link rel="stylesheet" href="~/css/Profile.css" asp-append-version="true" />
+</head>
+<body style="   background-color: #f0f0f0;">
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg nav-style navbar-light  border-bottom shadow-sm mb-3">
+            <div class="container-fluid px-0">
+
+                <a class="navbar-brand" href="#">
+                    <img src="~/Images/shield_search_find_business_logo-removebg-preview.png" alt="Logo" class="logo-size"> <!-- Replace with your logo path -->
+                </a>
+                <!-- Toggle Button for Mobile View -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ms-auto">
+                        @*                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-house-door"></i> الرئيسيه</a></li>
+                        *@
+                        @if (User.IsInRole("باحث عن عمل"))
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Home/GetJobByUser"><i class="bi bi-briefcase ms-1"></i>طلبات التوظيف</a></li>
+
+                        }
+                        else if (User.IsInRole("صاحب عمل"))
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-action="Create" asp-controller="Jobs"><i class="bi bi-briefcase ms-1"></i>اضافة وظيفه</a></li>
+
+                        }
+
+                       @if (User.IsInRole("صاحب عمل"))
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-action="Create" asp-controller="Jobs"><i class="bi bi-briefcase ms-1"></i>وظائفي</a></li>
+
+                        }
+                        <li class="nav-item"><a class="nav-link" href="/Home/index"><i class="bi bi-list"></i> تصفح الوظائف</a></li>
+
+
+
+
+                      @*  <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-info-circle"></i> حول الموقع</a></li>*@
+                        <li class="nav-item"><a class="nav-link" asp-action="Contacts" asp-controller="Home"><i class="bi bi-telephone"></i> اتصل بنا</a></li>
+
+
+                        <li style="width:200px" class="nav-item ">
+
+
+                            <input type="text" id="searchname" placeholder="أبحث هنا ..." name="searchname" />
+
+
+
+
+
+
+                        </li>
+                    </ul>
+                    <!--partialview log in -->
+                    @Html.Partial("_login")
+
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+    <div class="container Body">
+        <main role="main" class="pb-3 row">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer text-justify">
+        <div class="container">
+            <div class="row">
+                <!-- "من نحن" Section -->
+                <div class="col-12 col-sm-12 col-md-4 mb-3 mb-md-0">
+                    <h3>
+                        <i class="bi bi-patch-question-fill"></i>
+
+                        من نحن
+                    </h3>
+                    <p class="text-white">
+                        نحن شركة توظيف متخصصة في توفير حلول مبتكرة وفعّالة لربط الشركات بالموارد البشرية المناسبة.
+                        نحن نسعى لتسهيل عملية التوظيف عبر تقديم خدمات مهنية عالية الجودة،
+
+                    </p>
+                </div>
+
+                <!-- "روابط هامه" Section -->
+                <div class="col-12 col-sm-12 col-md-4 mb-3 mb-md-0">
+                    <h3>
+                        <i class="bi bi-globe-asia-australia"></i>
+                        روابط هامه
+
+
+
+
+
+
+
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">وظائف</a></li>
+                        <li><a href="#">وظائف</a></li>
+                        <li><a href="#">وظائف</a></li>
+                    </ul>
+                </div>
+
+                <!-- "تواصل معنا" Section -->
+                <div class="col-12 col-sm-12 col-md-4 mb-3 mb-md-0">
+                    <h3>
+                        <i class="bi bi-envelope-fill"></i>
+
+
+                        تواصل معنا
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">صفحتنا على فيسبوك</a></li>
+                        <li><a href="#">تويتر</a></li>
+                        <li><a href="#">يوتيوب</a></li>
+                        <li><a href="#">رساله</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <p class="sub-footer text-center text-white">جميع الحقوق محفوظه لدى موقع باجعمان للحلول التقنيه</p>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+             document.getElementById('searchname').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('searchForm').submit(); // Submit the form when Enter is pressed
+            }
+        });
+
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

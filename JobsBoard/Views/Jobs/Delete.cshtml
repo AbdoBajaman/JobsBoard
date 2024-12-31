@@ -1,0 +1,46 @@
+﻿@model JobsBoard.Models.Job
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>حذف</h1>
+
+<h3>هل انت متأكد من حذف هذي الوظيفه؟</h3>
+<div>
+    <h4>وظيفه</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JobContent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JobContent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JobImage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JobImage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="نعم" class="btn btn-danger" /> |
+        <a asp-action="Index">لا</a>
+    </form>
+</div>

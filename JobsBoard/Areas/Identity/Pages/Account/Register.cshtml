@@ -1,0 +1,123 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "الاشتراك";
+}
+<style>
+    input::placeholder {
+        text-align: right;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="card shadow p-4">
+                <h2 class="text-center mb-4">إنشاء حساب جديد</h2>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- User Name Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.UserName" class="form-control" id="UserName" placeholder="اسم المستخدم" required />
+                    <label for="UserName">اسم المستخدم</label>
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+
+                <!-- First Name Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.FirstName" class="form-control" id="FirstName" placeholder="الاسم الأول" required />
+                    <label for="FirstName">الاسم الأول</label>
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.LastName" class="form-control" id="LastName" placeholder="اسم العائلة" required />
+                    <label for="LastName">اسم العائلة</label>
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" id="Email" placeholder="البريد الإلكتروني" autocomplete="username" required />
+                    <label for="Email">البريد الإلكتروني</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+
+                <!-- User Type Dropdown -->
+                <div class="mb-3">
+                    <label asp-for="Input.UserType" class="form-label">نوع المستخدم</label>
+    @*   <select asp-for="Input.UserType" class="form-control" 
+            asp-items="(IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>)ViewData['UserType']">
+        <option value="">Select type</option>
+    </select>*@
+                    @Html.DropDownList("Input.UserType", (SelectList)ViewData["UserType"], new { @class = "form-select" })
+                    <span asp-validation-for="Input.UserType" class="text-danger"></span>
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.PhoneNumber" class="form-control" id="PhoneNumber" placeholder="رقم الهاتف" />
+                    <label for="PhoneNumber">رقم الهاتف</label>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" id="Password" placeholder="كلمة المرور" autocomplete="new-password" required />
+                    <label for="Password">كلمة المرور</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" id="ConfirmPassword" placeholder="تأكيد كلمة المرور" autocomplete="new-password" required />
+                    <label for="ConfirmPassword">تأكيد كلمة المرور</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button id="registerSubmit" type="submit" class="btn btn-primary w-100">اشتراك</button>
+                <a href="@Url.Action("Index", "Home")" class="btn btn-secondary w-100 mt-2">تسجيل الدخول</a>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                article
+                                about setting up this ASP.NET application to support logging in via external services
+                            </a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

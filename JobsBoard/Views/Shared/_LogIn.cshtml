@@ -1,0 +1,109 @@
+﻿@using JobsBoard.Areas.Identity.Data
+
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<JobsBoardUser> UserManager
+
+@{
+    JobsBoardUser currentUser = null;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        // Fetch the current user's full details
+        currentUser = await UserManager.GetUserAsync(User);
+
+    }
+}
+@if (User.Identity.IsAuthenticated)
+{
+
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="bi bi-person"></span>
+                <strong>@currentUser.UserName</strong>
+                <span class="bi bi-chevron-down"></span>
+            </a>
+            <div class="dropdown-menu">
+                <div class="row">
+                    <div class="col-lg-4 text-center">
+                        <p>
+                            <span class="bi bi-person-fill"></span>
+                        </p>
+                        <p>
+                            <i class="bi bi-building-fill"></i>
+
+                        </p>
+                        <p>
+                            <i class="bi bi-currency-dollar"></i>
+
+                        </p>
+
+                         <p>
+                            <i class="bi bi-sliders"></i>
+
+                        </p>
+
+                         <p>
+                            <i class="bi bi-info-circle"></i>
+
+                        </p>
+
+                           <p>
+                            <i class="bi bi-box-arrow-right"></i>
+
+                        </p>
+
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <a class="Bajaman-dropdown-item-link" asp-action="Profile" asp-controller="Home">@currentUser.UserName</a>
+
+
+                        <a class="Bajaman-dropdown-item-link" href="#"> شركاتي </a>
+
+
+                        <a class="Bajaman-dropdown-item-link" href="#"> معاملات ماليه </a>
+
+
+
+                        <a class="Bajaman-dropdown-item-link" asp-area="Identity" asp-page="/Account/Manage/Index"> اعدادات </a>
+
+
+                        <a class="Bajaman-dropdown-item-link" href="#"> مساعدة </a>
+
+                        <a class="Bajaman-dropdown-item-link" asp-area="Identity" asp-page="/Account/Logout"> تسجيل خروج </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        @*   <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
+            <i class="bi bi-person"></i> مرحبًا, @currentUser.UserName
+            </a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">
+            <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+            </a>
+            </li>*@
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
+                <i class="bi bi-box-arrow-in-right"></i> تسجيل الدخول
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">
+                <i class="bi bi-person-plus"></i> اشتراك
+            </a>
+        </li>
+    </ul>
+}
+
+

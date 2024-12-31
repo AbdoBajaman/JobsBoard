@@ -1,0 +1,420 @@
+﻿@model IEnumerable<JobsBoard.Models.Job>
+@{
+    ViewData["Title"] = "الوظائف";
+}
+
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <div class="jumbotron text-center alert alert-info">
+            <h1>مرحبا عزيزي الزائر</h1>
+            <p class="lead">
+                مرحباً بك في وظيفة للبحث عن الوظائف التي تجعلك متميزاً بأختلاف اصنافها كما يمكن نشر وظيفه اذا كانت صاحب عمل لايجاد الخبرات المناسبه لمشروعك
+            </p>
+            <p><a href="#" class="btn btn-primary btn-lg">المزيد من التفاصيل</a></p>
+        </div>
+    }
+}
+
+
+
+<div class="container">
+
+    <div class="header">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb page-main-header__breadcrumb">
+                    <li class="breadcrumb-item page-main-header__breadcrumb-item">
+                        <a class="main-title" href="#">
+                            الرئيسية
+                        </a>
+                    </li>
+
+                </ol>
+            </nav>
+
+            <div class="d-flex align-items-center justify-content-between">
+                <h1>الوظائف</h1>
+                <div>
+                    الاحدث
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-3 bg-transparent">
+            <div class=" bg-transparent" id="filters-sidebar">
+                <div class="bg-transparent">
+                    <div class="bg-transparent">
+                        <div class="filters-sidebar__mobile-nav bg-transparent">
+                            <!-- You can add content here if needed -->
+                        </div>
+
+                        <form id="search-jobs__form" method="GET" action="https://Bajaman.com/remote-jobs" accept-charset="UTF-8" class="bg-transparent">
+                            <input name="utf8" type="hidden" value="✓">
+
+                            <div class="form-group mb-4">
+                                <label for="keyword" class="col-form-label pt-0">بحث</label>
+                                <input type="text" class="form-control" id="keyword" data-filter="keyword" name="keyword" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label">التصنيف</label>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="remote-programming-jobs" id="category__remote-programming-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label" for="category__remote-programming-jobs">
+                                        برمجة وتطوير
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="remote-marketing-sales-jobs" id="category__remote-marketing-sales-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label" for="category__remote-marketing-sales-jobs">
+                                        تسويق ومبيعات
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="remote-translation-jobs" id="category__remote-translation-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label" for="category__remote-translation-jobs">
+                                        كتابة وترجمة
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="remote-design-jobs" id="category__remote-design-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label" for="category__remote-design-jobs">
+                                        تصميم
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="remote-business-jobs" id="category__remote-business-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label" for="category__remote-business-jobs">
+                                        إدارة وأعمال
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="remote-customer-support-jobs" id="category__remote-customer-support-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label" for="category__remote-customer-support-jobs">
+                                        دعم فني
+                                    </label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox category-checkbox__item bg-transparent">
+                                    <input data-filter="categories" class="custom-control-input" type="checkbox" value="other-remote-jobs" id="category__other-remote-jobs" name="categories">
+                                    <label class="custom-control-label filter-category-label mb-0" for="category__other-remote-jobs">
+                                        المجالات الأخرى
+                                    </label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-9">
+
+            <div class="collection-browse">
+                @foreach (var item in Model)
+                {
+                    <section class="col-md-12 card Bajaman_card ">
+                        <div class="Bajaman-card__content ">
+                            <table class="w-100">
+                                <tbody>
+
+                                    <tr>
+                                        <td class="Bajaman-list__image d-flex align-items-top">
+                                            <a href="#">
+                                                <img src="/Images/@item.JobImage" class="company_logo" alt="@item.CompanyName شركة">
+                                            </a>
+                                        </td>
+
+                                        <td class="td-w-100 Bajaman_list_details ">
+
+                                            <div class="d-flex align-items-top">
+                                                <div class="item_details px-0">
+                                                    <h3 class="card-title ">
+                                                        <span class="Bajaman-list__meta-label tag tag-primary small-tag mr-1 label-yellow">جديد</span>
+
+
+                                                        <a href="https://Bajaman.com/remote-jobs/eatadsa-%D9%85%D8%A8%D8%B1%D9%85%D8%AC">
+                                                            @Html.DisplayFor(model=>item.JobTitle)
+                                                        </a>
+                                                    </h3>
+
+                                                    <ul class="Bajaman-list_info d-flex flex-wrap gap-2 list-unstyled mb-0 p-0">
+                                                        <li class="Bajaman-list-items">
+                                                            <i class="bi bi-building-fill"></i>
+                                                            <a class="Bajaman-item-link  text-decoration-none
+                                                 text-reset bg-transparent " href="https://Bajaman.com/companies/eatadsa">
+                                                                @Html.DisplayFor(model=>item.CompanyName)
+                                                            </a>
+                                                        </li>
+
+                                                        <li class="Bajaman-list-items">
+                                                            <i class="bi bi-boxes"></i>
+                                                            <a class="Bajaman-item-link  text-decoration-none
+                                                 text-reset bg-transparent" href="https://Bajaman.com/categories/remote-programming-jobs">
+                                                                @Html.DisplayFor(model =>item.Category.CategoryName)
+                                                            </a>
+                                                        </li>
+
+                                                        <li class="Bajaman-list-items">
+                                                            @{
+                                                                DateTime applyDate = DateTime.Parse("2024-11-29 15:43:57.0203656");
+                                                                DateTime currentDate = DateTime.Now;
+                                                                TimeSpan difference = currentDate - applyDate;
+                                                                int daysAgo = difference.Days;
+
+                                                                // Calculate number of months
+                                                                int monthsAgo = (currentDate.Year - applyDate.Year) * 12 + currentDate.Month - applyDate.Month;
+                                                                if (currentDate.Day < applyDate.Day) monthsAgo--;
+
+                                                                // Calculate number of years
+                                                                int yearsAgo = currentDate.Year - applyDate.Year;
+                                                                if (currentDate.Month < applyDate.Month || (currentDate.Month == applyDate.Month && currentDate.Day < applyDate.Day)) yearsAgo--;
+                                                                <time datetime="@applyDate" title="" itemprop="datePosted" data-toggle="tooltip" data-original-title="2024-12-17 22:39:03">
+
+                                                                    <i class="bi bi-stopwatch"></i>
+                                                                    @if (yearsAgo > 0)
+                                                                    {
+                                                                        @if (yearsAgo == 1)
+                                                                        {
+                                                                            @:منذ سنة
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @:منذ @yearsAgo سنوات
+                                                                        }
+                                                                    }
+                                                                    else if (monthsAgo > 0)
+                                                                    {
+                                                                        @if (monthsAgo == 1)
+                                                                        {
+                                                                            @:منذ شهر
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @:منذ @monthsAgo أشهر
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @if (daysAgo == 0)
+                                                                        {
+                                                                            @:منذ اليوم
+                                                                        }
+                                                                        else if (daysAgo == 1)
+                                                                        {
+                                                                            @:منذ يوم
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @:منذ @daysAgo أيام
+                                                                        }
+                                                                    }
+                                                                </time>
+                                                            }
+
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                                <div class="Bajaman-list_action-wrapper">
+                                                    <a class="btn applay-job btn-sm" href="https://Bajaman.com/remote-jobs/eatadsa-%D9%85%D8%A8%D8%B1%D9%85%D8%AC" role="button">
+                                                        <i class="bi bi-send"></i>
+                                                        تقدم للوظيفة
+                                                    </a>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="card-collapsed_details card-brief" id="about_9632">
+                                                <a href="https://Bajaman.com/remote-jobs/eatadsa-%D9%85%D8%A8%D8%B1%D9%85%D8%AC" class="details-url
+                                                 text-decoration-none
+                                                 text-reset bg-transparent">
+                                                    (مطلوب) مبرمج خبير للعمل على مشروع قائم. مبرمج/ مطور قواعد بيانات MS SQL Server (Backend Frontend). المهام الوظيفية تصميم وتنفيذ قواعد البيانات: تطوير قواعد بيانات باستخدام MS SQL Server تصميم جداول، مؤشرات، views، stored procedures، triggers لضمان الأداء الأمثل إجراء التعديلات اللازمة على هيكل قاعدة البيانات وفقا لاحتياجات المشروع إدارة البيانات: إجراء النسخ الاحتياطي الدوري للبيانات وتطبيق استراتيجيات الحماية مراقبة الأداء وضمان...
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+@*@foreach (var item in Model)
+    {
+    <div class="card p-3" id="searchResults">
+    <div class="card bg-info text-white rounded-2">
+    <div class="card-header">
+    <h1 class="card-title">@Html.DisplayFor(modelitem => item.CategoryName)</h1>
+    </div>
+    </div>
+
+    <div class="card-body">
+    <p>@Html.DisplayFor(modelitem => item.CategoryDescription)</p>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+    @foreach (var job in item.Jobs)
+    {
+    <div class="col-md-3 col-jobs">
+    <div class="card mb-2">
+    <img src="/Images/@(job.JobImage)" class="card-img-top jobImage" alt="Job Image">
+    <div class="card-body">
+    <h5 class="card-title">@Html.DisplayFor(jobitem => job.JobTitle)</h5>
+    <p class="card-text">
+    @Html.Raw((job.JobContent.Length > 100) ? job.JobContent.Substring(0, 80) + "..." : job.JobContent)
+    </p>
+    <a href="@Url.Action("Details", "Home", new { id = job.Id })" class="btn btn-primary">تفاصيل</a>
+    </div>
+    </div>
+    </div>
+    }
+    </div>
+    </div>
+
+    }*@
+
+@*<div class="row d-flex justify-content-center" id="searchResults">
+
+    </div>*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script> <!-- jQuery script -->
+
+<script>
+    $(document).ready(function () {
+        // Handle Enter key press for submitting the search form via AJAX
+        $('#searchname').on('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent the default form submission behavior
+                var searchQuery = $('#searchname').val().trim(); // Get and trim the search query
+                console.log("Search query:", searchQuery);
+
+                if (!searchQuery) {
+                    location.reload();
+
+                    return;
+                }
+
+                // Send the search request via AJAX
+                $.ajax({
+                    url: '@Url.Action("Search", "Home")',
+                    type: 'GET',
+                    data: { searchname: searchQuery },
+                    success: function (data) {
+                        console.log("Received data:", data);
+
+                        if (!data || !data.$values || !Array.isArray(data.$values) || data.$values.length === 0) {
+                            console.log("No valid categories or empty array");
+                            $('#searchResults').html('<div class="col-12"><p>No results found.</p></div>');
+                            return;
+                        }
+
+                        // Build the content dynamically
+                        let content = '';
+                        data.$values.forEach(function (category) {
+                            if (category.categoryName && category.categoryDescription && category.jobs && Array.isArray(category.jobs.$values)) {
+                                content += `
+
+                                        <div class="card-header rounded-2">
+                                            <h1 class="card-title">${category.categoryName}</h1>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>${category.categoryDescription}</p>
+                                        </div>
+                                        <div class="row d-flex justify-content-center">
+                                `;
+
+                                category.jobs.$values.forEach(function (job) {
+                                    if (job.jobImage && job.jobTitle && job.jobContent) {
+                                        content += `
+                                            <div class="col-md-3 col-jobs">
+                                                <div class="card">
+                                                    <img src="/Images/${job.jobImage}" class="card-img-top jobImage" alt="Job Image">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">${job.jobTitle}</h5>
+                                                        <p class="card-text">${job.jobContent}</p>
+                                                        <a href="/Home/Details/${job.id}" class="btn btn-primary">تفاصيل</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `;
+                                    }
+                                });
+
+                                content += '</div><';
+                            }
+                        });
+
+                        $('#searchResults').html(content);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error:", xhr.status, status, error);
+                        $('#searchResults').html('<div class="col-12"><p>Error loading results. Please try again later.</p></div>');
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (TempData["Result"] != null)
+{
+    @if (TempData["Result"]?.ToString().Trim() == "تم التقديم بنجاح")
+    {
+
+        <script>
+            console.log("Hello");
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire({
+                    position: "top-start",
+                    icon: "success",
+                    title: "@TempData["Result"]", // Use TempData instead of ViewBag
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            });
+        </script>
+    }
+    else
+    {
+        <script>
+                        console.log("Hello");
+
+                  document.addEventListener("DOMContentLoaded", function () {
+                      Swal.fire({
+                          position: "top-start",
+            icon: "error",
+                          title: "@TempData["Result"]", // Use TempData instead of ViewBag
+                          showConfirmButton: false,
+                          timer: 3000
+                      });
+                  });
+        </script>
+    }
+}
+
+

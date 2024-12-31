@@ -1,0 +1,54 @@
+﻿@model JobsBoard.Models.Job
+
+@{
+    ViewData["Title"] = "تفاصيل";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="text-center my-4">تفاصيل الوظيفة</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-lg-12 offset-md-2">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white text-center">
+                    <h4>@Html.DisplayFor(model => model.JobTitle)</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <!-- Job Details on the Right -->
+                        <div class="col-md-5">
+                            <dl class="row">
+                                <dt class="col-sm-4 font-weight-bold">وصف الوظيفة</dt>
+                                <dd class="col-sm-8">@Html.Raw(Model.JobContent)</dd>
+                                <dt class="col-sm-4 font-weight-bold">نوع الوظيفة</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.Category.CategoryName)</dd>
+                            </dl>
+                        </div>
+                        <!-- Image on the Left -->
+                        <div class="col-md-7">
+                            <img src="~/Images/@(Model.JobImage ?? "default-image.jpg")" alt="صورة الوظيفه" class="thumbnail rounded jobImage" />
+                        </div>
+                    </div>
+                    @if (User.IsInRole("صاحب عمل"))
+                    {
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-sm">تعديل</a>
+                            <a asp-action="Index" class="btn btn-secondary btn-sm">رجوع إلى القائمة</a>
+                        </div>
+                    }
+                    else
+                    {
+                          <div class="d-flex justify-content-between mt-4">
+                            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-sm">قبول</a>
+                            <a asp-action="Index" class="btn btn-secondary btn-sm">رفض</a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

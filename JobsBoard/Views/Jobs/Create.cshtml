@@ -1,0 +1,134 @@
+﻿@model JobsBoard.Models.Job
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<script src="~/CkEditor/ckeditor/ckeditor.js" > </script>
+*@
+
+<script src="~/CkEditor/ckeditor/ckeditor.js"> </script>
+<h1>انشاء وظيفه</h1>
+
+<h4>وظيفه</h4>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create" enctype="multipart/form-data">
+                
+               
+                <div class="alert-danger rounded-3" id="ErrorDiv">
+                    <span id="ViewError" class="text-center">
+
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JobTitle" class="control-label"></label>
+                    <input asp-for="JobTitle" class="form-control" />
+                    <span asp-validation-for="JobTitle" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="JobContent" class="control-label"></label>
+                    <textarea asp-for="JobContent" class="form-control" id="JobContent"></textarea>
+                    <span asp-validation-for="JobContent" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Responsibilities" class="control-label"></label>
+                    <textarea asp-for="Responsibilities" class="form-control" id="Editor1"></textarea>
+                    <span asp-validation-for="Responsibilities" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="QualificationsANDExperiences" class="control-label"></label>
+                    <textarea asp-for="QualificationsANDExperiences" class="form-control" id="Editor2"></textarea>
+                    <span asp-validation-for="QualificationsANDExperiences" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Benefits" class="control-label"></label>
+                    <textarea asp-for="Benefits" class="form-control" id="Editor3"></textarea>
+                    <span asp-validation-for="Benefits" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group row">
+
+                    <div class="col-md-6">
+
+                        <label asp-for="CompanyName" class="control-label"></label>
+                        <input asp-for="CompanyName" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label asp-for="JobImage" class="control-label"></label>
+                        <input name="upload" type="file" asp-for="JobImage" class="form-control" id="JobImage" />
+                        <span asp-validation-for="JobImage" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="اضافه" class="btn btn-primary" id="save" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<div>
+    <a asp-action="Index">رجوع</a>
+</div>
+
+<script>
+    CKEDITOR.replace('Editor1');
+
+        CKEDITOR.replace('Editor2');
+            CKEDITOR.replace('Editor3');
+</script>
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script> <!-- jQuery script -->
+<script>
+    $(document).ready(function () {
+        console.log("Document ready"); // Check if document is ready
+
+        $("#save").click(function (e) {
+            console.log("Button clicked");
+
+            // Log the value of JobImage
+            console.log("JobImage value: ", $("#JobImage").val());
+
+            if ($("#JobImage").val() == "") { // Check if the input is empty
+                $("#ViewError").text("الرجاء ادخال صوره للوظيفة");
+                $("#ErrorDiv").show();
+
+                setTimeout(function () {
+                    $("#ErrorDiv").fadeOut();
+                }, 5000);
+
+                e.preventDefault(); // Prevent the form from submitting
+                return false;
+            }
+        });
+    });
+</script>

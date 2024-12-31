@@ -1,0 +1,15 @@
+﻿body {
+}
+
+
+.Bajaman-dropdown-item-link {
+    display: block;
+    padding: 7px 14px;
+    transition-duration: .1s;
+    clear: both;
+    color: #484848;
+    font-weight: 400;
+    line-height: 1.4285714;
+    white-space: nowrap;
+    text-decoration: none
+}
